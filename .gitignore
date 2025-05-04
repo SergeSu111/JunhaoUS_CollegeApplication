@@ -1,0 +1,16 @@
+**/node_modules
+
+# 构建产物
+app_web/dist
+app_server/.webpack
+app_server/.serverless
+
+# VSCode 配置
+.vscode/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 环境变量文件
+.env
