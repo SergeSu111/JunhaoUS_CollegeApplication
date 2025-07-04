@@ -1,0 +1,13 @@
+/* 全局重置与基础 
+表示所有元素以及他们的伪元素 的size都是默认包括内边距和外边框 而不是值包含内容区域
+默认padding和border的宽度是0 摸底就是不把盒子撑爆 破坏排版*/ 
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    /* 默认情况下浏览器会在body外留一圈空白 margin 0 情调他 就可以把整个页面布局 */
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    /* 深灰色 */
+    color: #333;
+    line-height: 1.6;
+}
