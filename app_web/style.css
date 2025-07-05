@@ -1,0 +1,204 @@
+/* 全局重置与基础 
+表示所有元素以及他们的伪元素 的size都是默认包括内边距和外边框 而不是值包含内容区域
+默认padding和border的宽度是0 摸底就是不把盒子撑爆 破坏排版*/ 
+*, *::before, *::after { box-sizing: border-box; }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #fff !important;
+}
+
+body {
+    /* 默认情况下浏览器会在body外留一圈空白 margin 0 情调他 就可以把整个页面布局 */
+    font-family: "Arial", sans-serif;
+    /* 深灰色 */
+    color: #333;
+    /* 行高1.6 显得字体没有那么拥挤 */
+    line-height: 1.6;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;    /* 保证至少跟视口一样高 */
+    
+}
+
+.header {
+    /* 方便对header里的 所有内部元素进行灵活排版 */
+    display: flex;
+    /* 垂直居中 */
+    align-items: center;
+    /* 内间距 上下各六1rem. 左右内间距为0.  */
+    padding: 1rem 0;
+    /* 固定顶部 这样用户滚动页面时 头部不会跟着移动 */
+    position: fixed; /* 固定顶部 */
+    /* 固定在顶部边缘 确保header直接贴在浏览器最上方 没有空白*/
+    top: 0;
+    /* 确保header宽度占满整个页面 */
+    width: 100%;
+    background: #fff;
+    /* 添加阴影 让header看起来更立体 header的下方 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    /* 哪怕做了position fixed 只代表它固定在了最上方 但不代表再所有元素之上 需要用到
+    z-index来控制上下级关系. 值越大 代表元素越考上. */
+    z-index: 100;
+}
+
+.header__container
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;  /* 可选：给个最大宽度，防止在超宽屏上散开太长 */
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+.header__logo-img {
+    height: 130px; /* Logo 高度 */
+    padding: 0px;
+    background-color: #fff;
+    color: #fff;
+  }
+
+.nav {
+    /* 去掉列表项的默认样式 */
+    list-style: none;
+    /* 水平排列 让里面的每一个小li */
+    display: flex;
+    gap: 1.5rem; /* 菜单项间距 */
+    margin-left: 0;
+  }
+
+
+  /* 4. 统一导航文字颜色和 hover 效果 */
+.nav__item a {
+    color: #555;       /* 深灰，比纯黑柔和，但对比度更好 */
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .nav__item a:hover {
+    color: #222;       /* hover 时再深一点 */
+  }
+
+
+  /* 5. 语言切换按钮也调一下风格 */
+.nav__item--lang button {
+    background: #222; 
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    /* 圆角 使得按钮边框更圆润 现代 */
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  section {
+ 
+    scroll-margin-top: 4rem;
+  }
+
+  section.container {
+    max-width: 100%;
+    margin: 0 auto;           /* 横向居中 */
+    text-align: center;
+  }
+
+/* 3. 如果想用品牌色，也可以这样 */
+main > section:nth-of-type(odd) {
+    background-color: #ffffff;
+  }
+  main > section:nth-of-type(even) {
+    background-color: #e8f0fe;   /* 取自 logo 浅蓝色调 */
+  }
+
+  /* 4. 可选：在容器内给标题加底部间距，分层更明显 */
+section h2, section .hero__title {
+    margin-bottom: 2rem;
+  }
+
+  /* 5. 取消所有实线边框，让分块更“虚” */
+section, footer, header {
+    border: none;
+    
+  }
+
+section {
+    width: 100%;              /* 背景色或底板全屏 */
+    padding: 4rem 0;          /* 上下呼吸空间 */
+    scroll-margin-top: 4rem;  
+    background-color: transparent; /* 默认透明，下面用奇偶规则上色 */
+}
+
+/* section 内的内容再用 .container 来限宽并居中 */
+section > .container {
+    text-align: center;       /* 或者你想要的排版 */
+  }
+
+  
+  .footer__content {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+
+  footer {
+    background-color: #fafafa;  /* 你想要的任何浅色，或者直接 #fff */
+    padding: 2rem 1rem;
+    width: 100%;
+    flex-shrink: 0;           /* 确保不会被 main 挤扁 */
+   
+  }
+
+  .services__list {
+    list-style: none;
+  }
+
+  main {
+    padding-top: 4rem;  /* 给 main 整体加上顶间距 */
+    flex: 1;
+  }
+
+  .header__tagline {
+    margin-top: 0.5rem;          /* 菜单和口号间距 */
+    font-size: 0.9rem;
+    color: #0A1F44;              /* 同导航深蓝色 */
+    white-space: nowrap;
+  }
+
+  .header__nav {
+    display: flex;
+    flex-direction: column;      /* 竖直两行 */
+    align-items: center;         /* 水平居中 */
+    font-size: 1.25rem;           /* 放大字号 */
+    font-weight: 600;             /* 加粗文字 */
+    color: #0A1F44;               /* 深蓝色，与 logo 主色呼应 */
+    margin-top: 0.5rem;           /* 保持和菜单的间距 */
+    padding: 0.25rem 0.75rem;     /* 内侧留白，做成一个“标签” */
+    border-radius: 4px;           /* 圆角，视觉更柔和 */
+    white-space: nowrap;          /* 不换行 */
+    text-transform: uppercase;    /* 全部大写，更具冲击力 */
+    letter-spacing: 0.05em;       /* 微调字母间距，更显高级 */
+  }
+
+
+
+  /* 响应式：小屏幕上字号稍微再小一点 */
+  @media (max-width: 600px) {
+    .header__nav {
+      font-size: 1rem;
+      padding: 0.2rem 0.5rem;
+    }
+  }
+
+  /* —— 2. Section 背景全屏，文字区限宽 —— */
+/* 先恢复通用的 .container 为内层限宽用 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }

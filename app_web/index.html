@@ -10,35 +10,34 @@
 <body>
   <!-- 1. 顶部导航 -->
   <header class="header">
-    <div class="header__logo">
-      <a href="#hero">
-        <img src="/logo.png" alt="Serge Education Logo" class="header__logo-img" />
-      </a>
-    </div>
-    <nav class="header__nav" aria-label="主导航">
-      <ul class="nav">
+    <div class="header__container">
+      <div class="header__logo">
+        <a href="#主页面">
+          <img src="/logo.png" alt="Serge Education Logo" class="header__logo-img" />
+        </a>
+      </div>
+
+      <nav class="header__nav" aria-label="主导航">
+        <ul class="nav">
+          <li class="nav__item nav__item--services"><a href="#services">服务详情</a></li>
+          <li class="nav__item nav__item--cases"><a href="#cases">录取案例</a></li>
+          <li class="nav__item nav__item--about"><a href="#about">关于我们</a></li>
+          <li class="nav__item nav__item--booking"><a href="#booking">预约咨询</a></li>
+          <li class="nav__item nav__item--tutoring"><a href="#tutoring">课程辅导</a></li>
+          <li class="nav__item nav__item--career"><a href="#career">职业规划</a></li>
+          <li class="nav__item nav__item--lang"><button id="lang-switch">EN / 中文</button></li>
+        </ul>
+        <div class="header__tagline">开启美国留学与职业新篇章</div>
+      </nav>
+
       
-        <li class="nav__item nav__item--services"><a href="#services">服务详情</a></li>
-        <li class="nav__item nav__item--cases"><a href="#cases">录取案例</a></li>
-        <li class="nav__item nav__item--about"><a href="#about">关于我们</a></li>
-        <li class="nav__item nav__item--booking"><a href="#booking">预约咨询</a></li>
-        <li class="nav__item nav__item--tutoring"><a href="#tutoring">课程辅导</a></li>
-        <li class="nav__item nav__item--career"><a href="#career">职业规划</a></li>
-        <li class="nav__item nav__item--lang"><button id="lang-switch">EN / 中文</button></li>
-      </ul>
-    </nav>
+    </div>
+    
   </header>
 
   <!-- 2. 单页主体内容 -->
   <main id="main-content">
-    <!-- Hero 部分 -->
-    <section id="hero" class="hero">
-      <div class="hero__inner container">
-        <h1 class="hero__title">开启美国留学与职业新篇章</h1>
-        <p class="hero__subtitle">诚信专业，学费亲民</p>
-        <a href="#booking" class="btn btn--primary">立即预约</a>
-      </div>
-    </section>
+    <section id = "主页面"></section>
 
     <!-- 核心亮点 -->
     <section id="highlights" class="highlights container">
@@ -93,7 +92,7 @@
   <!-- 3. 页脚 -->
   <footer class="footer">
     <div class="container footer__content">
-      <p>地址: 北京朝阳区 &bull; 电话: +1 234 567 8900</p>
+      <p>地址: 北京朝阳区 &bull; 电话: +1 801-800-9295</p>
       <p>邮箱: Junhao.S@outlook.com</p>
       <p>微信: SJH982536473</p>
       <p>抖音: Serge20010501</p>
@@ -101,6 +100,6 @@
     </div>
   </footer>
 
-  <script src="main.tsx"></script>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
